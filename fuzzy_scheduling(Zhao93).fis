@@ -1,0 +1,130 @@
+[System]
+Name='fuzzy_scheduling4'
+Type='mamdani'
+Version=2.0
+NumInputs=5
+NumOutputs=3
+NumRules=38
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='v'
+Range=[0 22.2]
+NumMFs=7
+MF1='4th':'trimf',[10 12.5 15]
+MF2='5th':'trimf',[12.5 15 17.5]
+MF3='6th':'trimf',[15 17.5 20]
+MF4='3rd':'trimf',[7.5 10 12.5]
+MF5='2nd':'trimf',[5 7.5 10]
+MF6='1st':'trapmf',[-Inf -Inf 5 7.5]
+MF7='7th':'trapmf',[17.5 20 Inf Inf]
+
+[Input2]
+Name='e'
+Range=[-2 2]
+NumMFs=7
+MF1='ZO':'trimf',[-0.5 0 0.5]
+MF2='NS':'trimf',[-1 -0.5 0]
+MF3='PM':'trimf',[0.5 1 1.5]
+MF4='NM':'trimf',[-1.5 -1 -0.5]
+MF5='PS':'trimf',[0 0.5 1]
+MF6='NB':'trapmf',[-Inf -Inf -1.5 -1]
+MF7='PB':'trapmf',[1 1.5 Inf Inf]
+
+[Input3]
+Name='de'
+Range=[-0.5 0.5]
+NumMFs=7
+MF1='NM':'trimf',[-0.5 -0.3 -0.15]
+MF2='ZO':'trimf',[-0.15 0 0.15]
+MF3='PS':'trimf',[0 0.15 0.3]
+MF4='NB':'trapmf',[-Inf -Inf -0.5 -0.3]
+MF5='PB':'trapmf',[0.3 0.5 Inf Inf]
+MF6='NS':'trimf',[-0.3 -0.15 0]
+MF7='PM':'trimf',[0.15 0.3 0.5]
+
+[Input4]
+Name='t'
+Range=[0 3]
+NumMFs=2
+MF1='1st':'zmf',[0 2.5]
+MF2='3rd':'smf',[0.5 3]
+
+[Input5]
+Name='R'
+Range=[-0.5 0.5]
+NumMFs=7
+MF1='NM':'trimf',[-0.4 -0.3 -0.2]
+MF2='NS':'trimf',[-0.3 -0.2 -0.1]
+MF3='PM':'trimf',[0.2 0.3 0.4]
+MF4='PS':'trimf',[0.1 0.2 0.3]
+MF5='NB':'trapmf',[-Inf -Inf -0.4 -0.3]
+MF6='ZO':'trapmf',[-0.2 -0.1 0.1 0.2]
+MF7='PB':'trapmf',[0.3 0.4 Inf Inf]
+
+[Output1]
+Name='Kp'
+Range=[0 45]
+NumMFs=2
+MF1='S':'zmf',[0 35]
+MF2='B':'smf',[10 45]
+
+[Output2]
+Name='alpha'
+Range=[1.5 5.5]
+NumMFs=4
+MF1='3':'trimf',[2.5 3 3.5]
+MF2='5':'trimf',[4.5 5 5.5]
+MF3='2':'trimf',[1.5 2 2.5]
+MF4='4':'trimf',[3.5 4 4.5]
+
+[Output3]
+Name='Kd'
+Range=[0 25]
+NumMFs=2
+MF1='S':'zmf',[0 20]
+MF2='B':'smf',[5 25]
+
+[Rules]
+0 6 0 0 0, 2 3 1 (1) : 1
+0 4 4 0 0, 1 1 2 (1) : 1
+0 4 1 0 0, 2 1 2 (1) : 1
+0 4 6 0 0, 2 3 1 (1) : 1
+0 4 2 0 0, 2 3 1 (1) : 1
+0 4 3 0 0, 2 3 1 (1) : 1
+0 4 7 0 0, 2 1 2 (1) : 1
+0 4 5 0 0, 1 1 2 (1) : 1
+0 2 4 0 0, 1 4 2 (1) : 1
+0 2 1 0 0, 1 1 2 (1) : 1
+0 2 6 0 0, 2 1 2 (1) : 1
+0 2 2 0 0, 2 3 1 (1) : 1
+0 2 2 0 0, 2 1 2 (1) : 1
+0 2 3 0 0, 2 1 2 (1) : 1
+0 2 7 0 0, 1 1 2 (1) : 1
+0 2 5 0 0, 1 4 2 (1) : 1
+0 1 4 0 0, 1 2 2 (1) : 1
+0 1 1 0 0, 1 4 2 (1) : 1
+0 1 6 0 0, 1 1 2 (1) : 1
+0 1 2 0 0, 2 1 2 (1) : 1
+0 1 3 0 0, 1 1 2 (1) : 1
+0 1 7 0 0, 1 4 2 (1) : 1
+0 1 5 0 0, 1 2 2 (1) : 1
+0 5 4 0 0, 1 4 2 (1) : 1
+0 5 1 0 0, 1 1 2 (1) : 1
+0 5 6 0 0, 2 1 2 (1) : 1
+0 5 2 0 0, 2 3 1 (1) : 1
+0 5 3 0 0, 2 1 2 (1) : 1
+0 5 7 0 0, 1 1 2 (1) : 1
+0 5 5 0 0, 1 4 2 (1) : 1
+0 3 4 0 0, 1 1 2 (1) : 1
+0 3 1 0 0, 2 1 2 (1) : 1
+0 3 6 0 0, 2 3 1 (1) : 1
+0 3 2 0 0, 2 3 1 (1) : 1
+0 3 3 0 0, 2 3 1 (1) : 1
+0 3 7 0 0, 2 1 2 (1) : 1
+0 3 5 0 0, 1 1 2 (1) : 1
+0 7 0 0 0, 2 3 1 (1) : 1

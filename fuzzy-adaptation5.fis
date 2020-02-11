@@ -1,0 +1,69 @@
+[System]
+Name='fuzzy-adaptation5'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=7
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='E'
+Range=[-1 1]
+NumMFs=7
+MF1='-2':'gaussmf',[0.15 -0.7]
+MF2='0':'gaussmf',[0.05 0]
+MF3='2':'gaussmf',[0.15 0.7]
+MF4='-3':'trapmf',[-25 -25 -1 -0.8]
+MF5='-1':'gaussmf',[0.1 -0.3]
+MF6='1':'gaussmf',[0.1 0.3]
+MF7='3':'trapmf',[0.8 1 25 25]
+
+[Input2]
+Name='R'
+Range=[-0.5 0.5]
+NumMFs=7
+MF1='-3':'trapmf',[-10 -10 -0.7 -0.4]
+MF2='0':'gaussmf',[0.015 0]
+MF3='3':'trapmf',[0.4 0.7 10 10]
+MF4='-2':'gaussmf',[0.08 -0.35]
+MF5='-1':'gaussmf',[0.03 -0.1]
+MF6='1':'gaussmf',[0.03 0.1]
+MF7='2':'gaussmf',[0.08 0.35]
+
+[Input3]
+Name='P'
+Range=[97 103]
+NumMFs=7
+MF1='-1':'trimf',[98.5 99.25 100]
+MF2='0':'trimf',[99.5 100 100.5]
+MF3='1':'trimf',[100 100.75 101.5]
+MF4='-3':'trapmf',[0 0 97 98.5]
+MF5='3':'trapmf',[101.5 103 200 200]
+MF6='-2':'trimf',[97.5 98.5 99.5]
+MF7='2':'trimf',[100.5 101.5 102.5]
+
+[Output1]
+Name='H'
+Range=[-2 2]
+NumMFs=7
+MF1='-2':'gaussmf',[0.25 -1.1]
+MF2='0':'gaussmf',[0.1 0]
+MF3='2':'gaussmf',[0.25 1.1]
+MF4='-3':'gaussmf',[0.35 -2]
+MF5='-1':'gaussmf',[0.15 -0.4]
+MF6='1':'gaussmf',[0.15 0.4]
+MF7='3':'gaussmf',[0.35 2]
+
+[Rules]
+0 0 1, 6 (1) : 1
+0 0 2, 2 (1) : 1
+0 0 3, 6 (1) : 1
+0 0 7, 3 (1) : 1
+0 0 5, 7 (1) : 1
+0 0 6, 3 (1) : 1
+0 0 4, 7 (1) : 1
