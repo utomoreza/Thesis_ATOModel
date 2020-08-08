@@ -25,3 +25,5 @@ situations. However, such discovery is not found in noisy conditions. Neverthele
 Kalman filter, all control objectives are then satisfied in not only normal but also noisy conditions. The case 
 study implemented using DLR data including on the route from Stratford International to Woolwich Arsenal 
 indicates a satisfactory performance of the designed controller for ATO systems.
+
+The thesis document can be seen [here](https://etheses.bham.ac.uk/id/eprint/8478/5/Utomo18MRes.pdf)
